@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    axios.get('/api/friends').then(friends => {
+      console.log(friends);
+    }).catch(err => console.log(err));
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
