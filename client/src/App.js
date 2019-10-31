@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    axios.get('/api/friends').then(friends => {
+    axios.get((process.env.REACT_APP_API || '') + '/api/friends').then(friends => {
       console.log(friends);
     }).catch(err => console.log(err));
   }, [])
